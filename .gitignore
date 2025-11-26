@@ -1,4 +1,6 @@
-# Python
+# ==================================================================================
+# PYTHON & DEPENDENCIES
+# ==================================================================================
 __pycache__/
 *.py[cod]
 *$py.class
@@ -22,51 +24,251 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.whl
 
 # Virtual environments
 venv/
 ENV/
 env/
 .venv
+env.bak/
+venv.bak/
+*.pth
 
-# Django
+# ==================================================================================
+# DJANGO
+# ==================================================================================
 *.log
+*.pot
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 /media
 /staticfiles
+/static
+*.sqlite
+*.sqlite3
+migrations/*.py
+!migrations/__init__.py
 
-# IDE
+# ==================================================================================
+# MACHINE LEARNING MODELS & DATA
+# ==================================================================================
+# Large model files (for production, consider using Git LFS)
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.keras
+*.pt
+*.pth
+*.onnx
+*.model
+*.bin
+*.pb
+best_ml_*.pkl
+best_ml_*.pkl.bak
+best_model.pkl
+*.pkl.bak
+
+# Large datasets (keep only in data/ if necessary)
+*.csv
+*.xlsx
+*.xls
+data/
+!data/.gitkeep
+
+# Preprocessed data & cache
+*.npy
+*.npz
+*.feather
+*.parquet
+
+# TensorFlow/Keras
+*.pb
+runs/
+logs/
+checkpoints/
+model_weights/
+
+# ==================================================================================
+# IDE & EDITORS
+# ==================================================================================
 .vscode/
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
 .idea/
+.idea_modules/
+*.iml
+*.iws
+*.ipr
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+.settings/
 *.swp
 *.swo
 *~
-.DS_Store
+.vim
+.netrwhist
+*~
 
-# Node
+# ==================================================================================
+# JUPYTER NOTEBOOKS
+# ==================================================================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+.jupyter/
+*.ipynb.bak
+*_checkpoint.ipynb
+
+# ==================================================================================
+# NODE & FRONTEND
+# ==================================================================================
+frontend/node_modules/
 node_modules/
 npm-debug.log
+npm-debug.log*
 yarn-error.log
+yarn-debug.log*
 .next/
 out/
-
-# React
+dist/
 build/
 .cache/
-dist/
+.nuxt/
+.vuepress/dist/
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+pnpm-lock.yaml
 
-# Environment variables
+# ==================================================================================
+# REACT SPECIFIC
+# ==================================================================================
+frontend/build/
+frontend/dist/
+frontend/.cache/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# ==================================================================================
+# ENVIRONMENT & SECRETS
+# ==================================================================================
 .env
 .env.local
 .env.*.local
+.env.development
+.env.production
+.env.test
+.env.backup
+*.env
 
-# OS
+# ==================================================================================
+# OS & SYSTEM FILES
+# ==================================================================================
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+.AppleDouble
+.LSOverride
+*.swp
+Icon?
+.gitkeep
+.gitattributes
+desktop.ini
 
-# Project specific
-*.pkl
+# ==================================================================================
+# BACKUP & TEMPORARY FILES
+# ==================================================================================
+*.bak
+*.backup
+*.tmp
+*.temp
+*.old
+*.orig
+*.swp
+*.swo
+*~
+.#*
+*.pyc.bak
+*.sqlite-wal
+*.sqlite-shm
+~$*
+
+# ==================================================================================
+# BUILD & DISTRIBUTION
+# ==================================================================================
+build/
+dist/
+*.egg-info/
+.eggs/
+*.tar.gz
+*.zip
+wheel/
+
+# ==================================================================================
+# TESTING
+# ==================================================================================
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest/
+__pycache__/
+
+# ==================================================================================
+# LINTING & CODE QUALITY
+# ==================================================================================
+.pylint.d/
+.flake8
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ==================================================================================
+# COMPILED FILES
+# ==================================================================================
+*.o
+*.a
+*.lib
+*.dylib
+*.exe
+*.out
+*.app
+
+# ==================================================================================
+# PROJECT SPECIFIC
+# ==================================================================================
 backend/venv/
 frontend/node_modules/
+backend/best_ml_vectorizer.pkl.bak
+backend/*.pkl
+models/*.pkl
+models/*.pkl.bak
+
+# Temporary scripts
+*_temp.py
+*_test.py
+debug_*.py
+
+# Local development
+.local/
+.secrets/
+credentials.json
+*.pem
+*.key

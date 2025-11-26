@@ -51,7 +51,8 @@ dummy_texts = [
 
 vectorizer.fit(dummy_texts)
 
-VECTORIZER_PATH = os.path.join(settings.BASE_DIR, 'best_ml_vectorizer.pkl')
+MODELS_DIR = os.path.join(settings.BASE_DIR.parent, 'models')
+VECTORIZER_PATH = os.path.join(MODELS_DIR, 'best_ml_vectorizer.pkl')
 
 # Backup old vectorizer
 old_path = VECTORIZER_PATH + '.bak'
@@ -73,10 +74,11 @@ print("\n" + "=" * 80)
 print("TESTING WITH NEW VECTORIZER")
 print("=" * 80)
 
-# Load the model
+# Load the model from models folder
 import os
 from django.conf import settings
-MODEL_PATH = os.path.join(settings.BASE_DIR, 'best_model.pkl')
+MODELS_DIR = os.path.join(settings.BASE_DIR.parent, 'models')
+MODEL_PATH = os.path.join(MODELS_DIR, 'best_ml_model.pkl')
 
 try:
     import joblib

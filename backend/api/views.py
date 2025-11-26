@@ -9,10 +9,11 @@ from django.conf import settings
 import re
 import numpy as np
 
-# Load the trained model, vectorizer, and SVD
-MODEL_PATH = os.path.join(settings.BASE_DIR, 'best_ml_model.pkl')
-VECTORIZER_PATH = os.path.join(settings.BASE_DIR, 'best_ml_vectorizer.pkl')
-SVD_PATH = os.path.join(settings.BASE_DIR, 'best_ml_svd.pkl')
+# Load the trained model, vectorizer, and SVD from models folder
+MODELS_DIR = os.path.join(settings.BASE_DIR.parent, 'models')
+MODEL_PATH = os.path.join(MODELS_DIR, 'best_ml_model.pkl')
+VECTORIZER_PATH = os.path.join(MODELS_DIR, 'best_ml_vectorizer.pkl')
+SVD_PATH = os.path.join(MODELS_DIR, 'best_ml_svd.pkl')
 
 model = None
 vectorizer = None
@@ -69,19 +70,19 @@ def predict_rating(request):
     
     if model is None:
         return Response(
-            {'error': 'Model not loaded. Please ensure best_ml_model.pkl exists in the backend directory.'},
+            {'error': 'Model not loaded. Please ensure best_ml_model.pkl exists in the models directory.'},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
     
     if vectorizer is None:
         return Response(
-            {'error': 'Vectorizer not loaded. Please ensure best_ml_vectorizer.pkl exists in the backend directory.'},
+            {'error': 'Vectorizer not loaded. Please ensure best_ml_vectorizer.pkl exists in the models directory.'},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
     
     if svd is None:
         return Response(
-            {'error': 'SVD not loaded. Please ensure best_ml_svd.pkl exists in the backend directory.'},
+            {'error': 'SVD not loaded. Please ensure best_ml_svd.pkl exists in the models directory.'},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
     

@@ -12,9 +12,10 @@ from api.views import clean_text
 import joblib
 from django.conf import settings
 
-# Load model and vectorizer
-MODEL_PATH = os.path.join(settings.BASE_DIR, 'best_model.pkl')
-VECTORIZER_PATH = os.path.join(settings.BASE_DIR, 'best_ml_vectorizer.pkl')
+# Load model and vectorizer from models folder
+MODELS_DIR = os.path.join(settings.BASE_DIR.parent, 'models')
+MODEL_PATH = os.path.join(MODELS_DIR, 'best_ml_model.pkl')
+VECTORIZER_PATH = os.path.join(MODELS_DIR, 'best_ml_vectorizer.pkl')
 
 model = joblib.load(MODEL_PATH)
 vectorizer = joblib.load(VECTORIZER_PATH)

@@ -68,9 +68,10 @@ print(f"✓ Model trained successfully")
 print(f"  Classes: {model.classes_}")
 print(f"  Features: {model.n_features_in_}")
 
-# Save model and vectorizer
-MODEL_PATH = os.path.join(settings.BASE_DIR, 'best_model.pkl')
-VECTORIZER_PATH = os.path.join(settings.BASE_DIR, 'best_ml_vectorizer.pkl')
+# Save model and vectorizer to models folder
+MODELS_DIR = os.path.join(settings.BASE_DIR.parent, 'models')
+MODEL_PATH = os.path.join(MODELS_DIR, 'best_ml_model.pkl')
+VECTORIZER_PATH = os.path.join(MODELS_DIR, 'best_ml_vectorizer.pkl')
 
 joblib.dump(model, MODEL_PATH)
 joblib.dump(vectorizer, VECTORIZER_PATH)
